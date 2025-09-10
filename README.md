@@ -46,7 +46,7 @@ It automates:
 <role rolename="manager-gui"/>
 <role rolename="manager-script"/>
 <user username="admin" password="admin123" roles="manager-gui,manager-script"/>
+```
 
----
 
 **Later extended this into **Pipeline-as-Code** using a `Jenkinsfile`**
