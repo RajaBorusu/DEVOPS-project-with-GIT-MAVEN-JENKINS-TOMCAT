@@ -1,8 +1,12 @@
 # 🚀 DevOps End-to-End Project with Git, Maven, Jenkins & Tomcat
 
 ## 📌 Project Overview  
-This project demonstrates a **CI/CD pipeline** using **GitHub → Jenkins → Maven → Tomcat**.  
-It automates fetching source code, building with Maven, and deploying to Tomcat.
+This project demonstrates a **CI/CD pipeline (Freestyle Job)** using **GitHub → Jenkins → Maven → Tomcat**.  
+
+It automates:  
+- Fetching code from GitHub  
+- Building artifacts using Maven  
+- Deploying to Tomcat server
 
 ---
 
