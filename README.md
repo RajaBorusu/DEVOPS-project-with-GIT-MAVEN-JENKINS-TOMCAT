@@ -18,12 +18,13 @@ It automates:
 
 ---
 
-## ⚙️ Jenkins Configuration  
-1. **Created Job** → Freestyle Project  
-2. **Source Code Management** → GitHub Repository URL  
-3. **Build Step** → `mvn clean package`  
-4. **Webhook Integration** → GitHub Webhook → Jenkins  
-5. **Post-Build Action** → Deploy WAR/EAR to Tomcat container (via *Deploy to Container Plugin*)  
+## ⚙️ Jenkins Configuration (Freestyle Job)  
+1. Created a **Freestyle Project** in Jenkins (not a pipeline job).  
+2. Configured GitHub repo under *Source Code Management*.  
+3. Added Maven build step → `mvn clean package`.  
+4. Configured GitHub Webhook to trigger builds automatically.  
+5. Installed and used **Deploy to Container Plugin** for deployment.  
+
 
 ---
 
