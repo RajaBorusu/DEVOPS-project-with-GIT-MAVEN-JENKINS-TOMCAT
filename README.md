@@ -1,4 +1,4 @@
-# 🚀 DevOps End-to-End Project with Git, Maven & Tomcat
+# 🚀 DevOps End-to-End Project with Git, Maven, Jenkins & Tomcat
 
 ## 📌 Project Overview  
 This project demonstrates a **CI/CD pipeline** using **GitHub → Jenkins → Maven → Tomcat**.  
