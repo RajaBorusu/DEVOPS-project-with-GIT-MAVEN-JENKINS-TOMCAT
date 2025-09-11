@@ -14,8 +14,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        // If repo is private, add credentialsId: 'github-creds' to this git step
-        git branch: 'main', url: 'https://github.com/RajaBorusu/DEVOPS-project-with-GIT-MAVEN-JENKINS-TOMCAT.git'
+                git branch: 'main', url: 'https://github.com/RajaBorusu/DEVOPS-project-with-GIT-MAVEN-JENKINS-TOMCAT.git'
       }
     }
 
@@ -28,7 +27,7 @@ pipeline {
     
     stage('Deploy to Tomcat') {
       steps {
-        // Uses credentials stored in Jenkins with ID 'tomcat-cred'
+        // we use credentials stored in Jenkins with ID 'tomcat-cred'
         deploy adapters: [
           tomcat8(credentialsId: 'tomcat-cred', path: '', url: "${DEPLOY_SERVER}")
         ], contextPath: "${CONTEXT_PATH}", war: '**/target/*.war'
