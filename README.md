@@ -2,6 +2,9 @@
 
 ## 📌 Project Overview  
 This project demonstrates a **CI/CD pipeline (Freestyle Job)** using **GitHub → Jenkins → Maven → Tomcat**.  
+<h4>Later extended this into Pipeline-as-Code using a Jenkinsfile</h4>
+
+
 
 It automates:  
 - Fetching code from GitHub  
@@ -49,5 +52,4 @@ It automates:
 ```
 
 
-<h2>Later extended this into Pipeline-as-Code using a Jenkinsfile</h2>
 
