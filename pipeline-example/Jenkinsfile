@@ -8,7 +8,7 @@ pipeline {
 
   environment {
     DEPLOY_SERVER = "http://15.207.87.167:8080/"
-    CONTEXT_PATH  = "myapp"
+    CONTEXT_PATH  = "teju"
   }
 
   stages {
