@@ -2,7 +2,7 @@
 
 ## 📌 Project Overview  
 This project demonstrates a **CI/CD pipeline (Freestyle Job)** using **GitHub → Jenkins → Maven → Tomcat**.  
-<h4>Later extended this into Pipeline-as-Code (https://img.shields.io/badge/Pipeline--as--Code-blue) using a Jenkinsfile</h4>
+<h4>Later extended this into Pipeline-as-Code using a Jenkinsfile</h4>
 
 
 
