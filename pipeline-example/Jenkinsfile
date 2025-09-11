@@ -1,48 +1,43 @@
 pipeline {
-    agent any
+  agent any
 
-    tools {
-        maven 'MAVEN_HOME'   // Configure Maven in Jenkins global tools
-        jdk 'JAVA_HOME'      // Configure JDK in Jenkins global tools
+  tools {
+    maven 'MAVEN_HOME'
+    jdk 'JAVA_HOME'
+  }
+
+  environment {
+    DEPLOY_SERVER = "http://15.207.87.167:8080/"
+    CONTEXT_PATH  = "myapp"
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        // If repo is private, add credentialsId: 'github-creds' to this git step
+        git branch: 'main', url: 'https://github.com/RajaBorusu/DEVOPS-project-with-GIT-MAVEN-JENKINS-TOMCAT.git'
+      }
     }
 
-    environment {
-        DEPLOY_SERVER = "http://<Tomcat-Server-IP>:8080"
-        DEPLOY_USER = "admin"
-        DEPLOY_PASS = "admin123"
+    stage('Build') {
+      steps {
+        sh 'mvn -B clean package'   // -B for non-interactive
+      }
     }
 
-    stages {
-        stage('Checkout Code') {
-            steps {
-                git branch: 'main', url: 'https://github.com/<your-username>/<your-repo>.git'
-            }
-        }
-
-        stage('Build with Maven') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-
-        stage('Deploy to Tomcat') {
-            steps {
-                deploy adapters: [
-                    tomcat8(credentialsId: 'tomcat-cred', 
-                            path: '', 
-                            url: "${DEPLOY_SERVER}")
-                ], contextPath: 'myapp', war: '**/target/*.war'
-            }
-        }
+    
+    stage('Deploy to Tomcat') {
+      steps {
+        // Uses credentials stored in Jenkins with ID 'tomcat-cred'
+        deploy adapters: [
+          tomcat8(credentialsId: 'tomcat-cred', path: '', url: "${DEPLOY_SERVER}")
+        ], contextPath: "${CONTEXT_PATH}", war: '**/target/*.war'
+      }
     }
+  }
 
-    post {
-        success {
-            echo '✅ Build and Deployment Successful!'
-        }
-        failure {
-            echo '❌ Build Failed!'
-        }
-    }
+  post {
+    success { echo '✅ SUCCESS: Build and deploy finished.' }
+    failure { echo '❌ FAILURE: Check console output.' }
+  }
 }
-
