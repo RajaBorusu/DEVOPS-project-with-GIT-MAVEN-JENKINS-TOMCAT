@@ -49,4 +49,5 @@ It automates:
 ```
 
 
-<h1>Later extended this into **Pipeline-as-Code** using a `Jenkinsfile`</h1>
+<h2>Later extended this into <font color="red">Pipeline-as-Code</font> using a Jenkinsfile</h2>
+
