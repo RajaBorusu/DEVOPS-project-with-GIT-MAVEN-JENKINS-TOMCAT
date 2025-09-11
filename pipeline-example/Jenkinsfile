@@ -1,1 +1,48 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'MAVEN_HOME'   // Configure Maven in Jenkins global tools
+        jdk 'JAVA_HOME'      // Configure JDK in Jenkins global tools
+    }
+
+    environment {
+        DEPLOY_SERVER = "http://<Tomcat-Server-IP>:8080"
+        DEPLOY_USER = "admin"
+        DEPLOY_PASS = "admin123"
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/<your-username>/<your-repo>.git'
+            }
+        }
+
+        stage('Build with Maven') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Deploy to Tomcat') {
+            steps {
+                deploy adapters: [
+                    tomcat8(credentialsId: 'tomcat-cred', 
+                            path: '', 
+                            url: "${DEPLOY_SERVER}")
+                ], contextPath: 'myapp', war: '**/target/*.war'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '✅ Build and Deployment Successful!'
+        }
+        failure {
+            echo '❌ Build Failed!'
+        }
+    }
+}
 
