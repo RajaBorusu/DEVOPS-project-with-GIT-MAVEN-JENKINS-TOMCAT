@@ -1,10 +1,3 @@
-DEVOPS END-END Real Time project with GIT,MAVEN & TOMCAT ||
-
-
-
-present pipeline
-
-
 pipeline {
   agent any
 
