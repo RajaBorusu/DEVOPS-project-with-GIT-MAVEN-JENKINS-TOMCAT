@@ -14,12 +14,12 @@ pipeline {
   }
 
   environment {
-    DEPLOY_SERVER = "http://15.207.87.167:8080/"
-    CONTEXT_PATH  = "myapp"
+    DEPLOY_SERVER = "http://13.127.104.237:8080/"
+    CONTEXT_PATH  = "newapp"
   }
 
   stages {
-    stage('Checkout') {
+    stage('Git Checkout') {
       steps {
                 git branch: 'main', url: 'https://github.com/RajaBorusu/DEVOPS-project-with-GIT-MAVEN-JENKINS-TOMCAT.git'
       }
