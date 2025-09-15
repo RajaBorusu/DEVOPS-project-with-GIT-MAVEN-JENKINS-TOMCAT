@@ -15,7 +15,7 @@ pipeline {
 
   environment {
     DEPLOY_SERVER = "http://13.127.104.237:8080/"
-    CONTEXT_PATH  = "newapp"
+    CONTEXT_PATH  = "newappp"
   }
 
   stages {
